@@ -5,7 +5,24 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "flask>=3.1.1",
+    "gunicorn>=23.0.0",
     "matplotlib>=3.10.5",
     "opencv-python>=4.12.0.88",
+    "pandas>=2.3.1",
     "picamera2>=0.3.30",
+    "plotly>=6.3.0",
+    "transformers>=4.55.2",
+    "markupsafe<3.0.2",  # because otherwise incompatibility with torch and platform
+    "torch>=2.8.0",
 ]
+[tool.uv.sources]
+torch = { index = "pytorch" }
+torchvision = { index = "pytorch" }
+
+[[tool.uv.index]]
+# Optional name for the index.
+name = "pytorch"
+# Required URL for the index.
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
